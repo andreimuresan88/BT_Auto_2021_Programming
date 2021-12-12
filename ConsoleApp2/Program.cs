@@ -4,9 +4,9 @@ namespace ConsoleApp2
 {
     class Program
     {
-        static void Main(string[] args)
-        {
 
+        public static void runEx(string[] args)
+        {
             const int MAX_SIZE = 100;
             const double PI = 3.1415;
             const int MAX_NUMBER = 5;
@@ -203,7 +203,174 @@ namespace ConsoleApp2
             {
                 Console.WriteLine("Counter number is: {0}", counter);
             }
+
+            foreach (String argument in args)
+            {
+                Console.WriteLine("the argument is: {0}", argument);
+            }
+
+            int year = 1900;
+            int febDays = 28;
+
+            foreach (string yr in args)
+            {
+                int febDayss = 28;
+                year = int.Parse(yr);
+            }
+
+            if (year % 4 == 0)
+            {
+                if (year % 100 == 0 && year % 400 != 0)
+                {
+                    febDays = 29;
+                }
+                if (year % 100 != 0)
+                {
+                    febDays = 29;
+                }
+            }
+            if (year < 1900 || year > 2018)
+            {
+                Console.WriteLine("year si out of valid bounds");
+            }
+            else
+            {
+                if ((year % 4 == 0 && year % 100 == 0 && year % 400 != 0) || (year % 4 == 0 && year % 100 != 0))
+                {
+                    febDays = 29;
+                }
+            }
+
+            Console.WriteLine("Feb has {0} days", febDays);
         }
 
+
+        public static void runEx1(string[] args)
+        {
+            if (args.Length == 3)
+            {
+
+                float a = float.Parse(args[0]);
+
+                float b = float.Parse(args[2]);
+
+                string op = args[1];
+
+                float result=0;
+                // implement calculator logic here
+                switch (op)
+                {
+                    case "+":
+                        {
+                            result = a + b;
+                            break;
+                        }
+                    case "-":
+                        {
+                            result = a - b;
+                            break;
+                        }
+                    case "*":
+                        {
+                            result = a * b;
+                            break;
+                        }
+                    case "/":
+                        {
+                            result = a / b;
+                            break;
+                        }
+                    default:
+                        {
+                            Console.WriteLine("Invalid op");
+                            break;
+                        }
+
+                }
+
+                Console.WriteLine("Result is: " + result);
+
+            }
+            else
+            {
+
+                Console.WriteLine("3 args are needed!");
+
+            }
+        }
+
+        //Calculate the sum of the first 100 numbers higher than 0
+        public static void runEx2()
+        {
+            int number = 100;
+            int sum = 0;
+            for (int i = 1; i < number + 1; i++)
+            {
+                sum += i;
+            }
+            Console.WriteLine("The sum for the first 100 numbers is: " + sum);
+        }
+
+
+        ////Check if a number is palindrome ( e.g. palindrome 1221, 34143)
+        public static void runEx3()
+        {
+            int number = 1221;
+            int sum = 0, temp;
+            temp = number;
+            while (number > 0)
+            {
+                sum = (sum * 10) + number % 10;
+                number = number / 10;
+            }
+            if (temp == sum)
+                Console.WriteLine(number +" is palindrome.");
+            else
+                Console.WriteLine(number +" is not palindrome");
+        }
+
+        public static Boolean isPrim(int x)
+        {
+            if(x == 0 || x == 1)
+            {
+                return false;
+            }
+            if(x == 2)
+            {
+                return true;
+            }
+            for(int i=2; i<=x/2; i++)
+            {
+                if (x % i == 0)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        //Display all the prime numbers lower than a given number
+        public static void runEx4()
+        {
+            int number = 30;
+            int counter = 0;
+            for (int i = 2; i <= number; i++)
+            {
+                if (isPrim(i))
+                {
+                    counter++;
+                    Console.WriteLine("{0}. : "+i + " is prim", counter);
+                }
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            //runEx(args);
+            runEx1(args);
+            runEx2();
+            runEx3();
+            runEx4();
+        }
     }
 }
