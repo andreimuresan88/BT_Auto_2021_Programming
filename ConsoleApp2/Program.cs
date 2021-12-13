@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BT_Auto_2021_Programming;
+using System;
 
 namespace ConsoleApp2
 {
@@ -367,10 +368,52 @@ namespace ConsoleApp2
         static void Main(string[] args)
         {
             //runEx(args);
-            runEx1(args);
-            runEx2();
-            runEx3();
-            runEx4();
+            //runEx1(args);
+            //runEx2();
+            //runEx3();
+            //runEx4();
+            Course02(args);
         }
+
+        static void Course02(string[] args)
+        {
+            Circle c1 = new Circle();
+            Circle c2 = new Circle();
+            c1.setRadius(10);
+            double area = c1.getArea();
+            Console.WriteLine(area);
+            //Console.WriteLine(c1.getArea());
+            c1.PrintCircle();
+            Circle c3 = new Circle();
+            c3.setRadius(5);
+            //Console.WriteLine(c3.getArea());
+            c3.PrintCircle();
+            c2.PrintCircle();
+            foreach (string s in args)
+            {
+                Circle c = new Circle();
+                c.setRadius(Double.Parse(s));
+                Square sq = new Square();
+                sq.setSide(Double.Parse(s));
+                c.PrintCircle();
+                sq.printSquare();
+                Rectangle r = new Rectangle();
+                r.SetSize(Double.Parse(s), Double.Parse(s));
+                r.PrintRectangle();
+            }
+
+            Person p1 = new Person();
+            p1.SetName("Alex");
+            p1.SetSex('m');
+            p1.Eat();
+            p1.Run();
+            p1.Eat();
+            p1.PrintPersone();
+
+            Rectangle r1 = new Rectangle();
+            r1.SetSize(2, 3);
+            r1.PrintRectangle();
+          
+        }        
     }
 }

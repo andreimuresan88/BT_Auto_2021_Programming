@@ -2,7 +2,7 @@
   "profiles": {
     "BT_Auto_2021_Programming": {
       "commandName": "Project",
-      "commandLineArgs": "2 - 10"
+      "commandLineArgs": "12 15.5 22.3"
     },
     "WSL": {
       "commandName": "WSL2",
