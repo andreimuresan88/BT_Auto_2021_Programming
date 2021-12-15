@@ -372,7 +372,8 @@ namespace ConsoleApp2
             //runEx2();
             //runEx3();
             //runEx4();
-            Course02(args);
+            //Course02(args);
+            Course03(args);
         }
 
         static void Course02(string[] args)
@@ -415,5 +416,83 @@ namespace ConsoleApp2
             r1.PrintRectangle();
           
         }        
+
+        static void Course03(string[] args)
+        {
+            ComputeConversion(args);
+            CurrencyCalculator(156, "USD", 4.3734);
+            //asa
+            string s2 = ConcatenateString(args);
+            Console.WriteLine(s2);
+            //sau asa
+            Console.WriteLine(ConcatenateString(args));
+            Random rnd = new Random();
+            GuessNumber(rnd.Next(1, 1000));
+            IsOddNumber(10);
+        }
+        static void ComputeConversion(string [] args)
+        {
+            if (args.Length != 3)
+            {
+                Console.WriteLine("the app receives only 3 parameters: amount, currency and exchange rate");
+            }
+            else
+            {
+                Console.WriteLine("{0} {1} {2} ", args[0], args[1], args[2]);
+                CurrencyCalculator(Double.Parse(args[0]), args[1], Double.Parse(args[2]));
+                //double amount = Double.Parse(args[0]);
+                //string currency = args[1];
+                //double conversionRate = Double.Parse(args[2]);
+                //Console.WriteLine("By converting {0} {1} into RON we obtain {2}", amount, currency, amount * conversionRate);
+            }
+        }
+        static void CurrencyCalculator(double amount, string currency, double conversionRate)
+        {
+            Console.WriteLine("By converting {0} {1} into RON we obtain {2}", amount, currency , amount * conversionRate);
+        }
+
+        static string ConcatenateString(string [] args)
+        {
+            string returnString = "";
+
+            foreach(string s in args)
+            {
+                returnString += s;
+            }
+            return returnString;
+        }
+
+        static int TestValue(int testVal, int target)
+        {
+
+            if(testVal< target)
+            {
+                Console.WriteLine("number to be guess is higher");
+                return -1;
+            }
+            if(testVal > target)
+            {
+                Console.WriteLine("number to be guess is lower");
+                return 1;
+            }
+            Console.WriteLine("Bazinga, this is the number");
+            return 0;
+        }
+
+        static void GuessNumber(int n)
+        {
+            int currentNumber = 0;
+            do
+            {
+                currentNumber = int.Parse(Console.ReadLine());
+                Console.WriteLine("numerb chosen is {0} ", currentNumber);
+            }
+            while ( TestValue(currentNumber, n) !=0);
+        }
+
+        static bool IsOddNumber(int number)
+        {
+            return number % 2 != 0;
+        }
     }
 }
