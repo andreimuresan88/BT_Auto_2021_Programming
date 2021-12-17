@@ -373,7 +373,8 @@ namespace ConsoleApp2
             //runEx3();
             //runEx4();
             //Course02(args);
-            Course03(args);
+            //Course03(args);
+            Course04();
         }
 
         static void Course02(string[] args)
@@ -430,6 +431,101 @@ namespace ConsoleApp2
             GuessNumber(rnd.Next(1, 1000));
             IsOddNumber(10);
         }
+
+        static void Course04()
+        {
+            //DrawFullShape(5, 3);
+            //Console.WriteLine();
+            //DrawShapeOutLine(5, 3);
+            Console.WriteLine();
+            //DrawShapeCorners(5, 3);
+
+            Circle c1 = new Circle();
+            Circle c2 = new Circle(10);
+            c1.PrintCircle();
+            c2.PrintCircle();
+            Person p1 = new Person();
+            Person p2 = new Person("andrei", 'm', new string[] { "RO" } , false, new DateTime());
+            p1.PrintPersone();
+            p2.PrintPersone();
+
+            Rectangle r1 = new Rectangle();
+            Rectangle r2 = new Rectangle(2, 4);
+            r1.PrintRectangle();
+            r2.PrintRectangle();
+
+            Square s1 = new Square();
+            Square s2 = new Square(5);
+            s1.printSquare();
+            s2.printSquare();
+
+            StructExemple.MyStruct myStruct = new StructExemple.MyStruct();
+            myStruct.Assign(10, "abc");
+            Console.WriteLine(myStruct.ComputeSum());
+            StructExemple.Rectangle r4 = new StructExemple.Rectangle();
+            r4.Assign(2, 3, 4);
+            //Console.WriteLine(r4)
+        }
+
+        public static  void DrawFullShape(int width, int height)
+        {
+            for (int j = 0; j < height; j++)
+            {
+                for (int i = 0; i < width; i++)
+                {
+                    Console.Write("*");
+                }
+                Console.WriteLine("*");
+            }
+        }
+
+        public static void DrawShapeOutLine(int width, int height)
+        {
+            for (int j = 0; j < height; j++)
+            {
+                for (int i = 0; i < width; i++)
+                {
+                    if (j==0 || j==height-1)
+                    {
+                        Console.Write("*");
+                    }
+                    else
+                    {
+                        if(i==0 || i == width - 1)
+                        {
+                            Console.Write("*");
+                        }
+                        else
+                        {
+                            Console.Write(" ");
+                        }                            
+                    }
+                }
+                Console.WriteLine(" ");
+            }
+        }
+
+        public static void DrawShapeCorners(int width, int height)
+        {
+            for (int j = 0; j < height; j++)
+            {
+                for (int i = 0; i < width; i++)
+                {
+                    if ((j==0 && i==0) || (j==0 && j == width-1) || (j==height-1 && i==0) || (j==width-1 && i==width-1))
+                    {
+                        Console.Write("*");
+                    }
+                    else
+                    {
+                        Console.Write(" ");
+                    }
+                }
+                Console.WriteLine("*");
+            }
+  
+        }
+
+
         static void ComputeConversion(string [] args)
         {
             if (args.Length != 3)
@@ -494,5 +590,6 @@ namespace ConsoleApp2
         {
             return number % 2 != 0;
         }
+
     }
 }
