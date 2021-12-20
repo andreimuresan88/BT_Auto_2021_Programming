@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BT_Auto_2021_Programming
 {
-    class Circle
+    class Circle : Shape
     {
         double radius;
         //const double PI = 3.1415;
@@ -31,6 +31,18 @@ namespace BT_Auto_2021_Programming
         public void PrintCircle()
         {
             Console.WriteLine("Circle with radius {0} has the area {1} ", radius, getArea());
+        }
+
+        public override void Draw()
+        {
+            Console.WriteLine("we are drawing cicle with radius {0}", radius);
+        }
+
+        public override string ToString()
+        {
+            //return base.ToString();
+            //base apelam o metoda din clasa parinte
+            return "this is a circle with radius " + radius;
         }
     }
 }

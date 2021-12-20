@@ -374,7 +374,8 @@ namespace ConsoleApp2
             //runEx4();
             //Course02(args);
             //Course03(args);
-            Course04();
+            //Course04();
+            Course05();
         }
 
         static void Course02(string[] args)
@@ -459,12 +460,37 @@ namespace ConsoleApp2
             s1.printSquare();
             s2.printSquare();
 
-            StructExemple.MyStruct myStruct = new StructExemple.MyStruct();
-            myStruct.Assign(10, "abc");
-            Console.WriteLine(myStruct.ComputeSum());
-            StructExemple.Rectangle r4 = new StructExemple.Rectangle();
-            r4.Assign(2, 3, 4);
+            //StructExemple.MyStruct myStruct = new StructExemple.MyStruct();
+            //myStruct.Assign(10, "abc");
+            //Console.WriteLine(myStruct.ComputeSum());
+            //StructExemple.Rectangle r4 = new StructExemple.Rectangle();
+            //r4.Assign(2, 3, 4);
             //Console.WriteLine(r4)
+        }
+
+        static void Course05()
+        {
+            DrawShapeOutLine(5);
+            DrawShapeOutLine(4,3);
+            DrawShapeCorners(6);
+            DrawFullShape(7);
+            Circle c = new Circle();
+            Object o = new Object();
+            c.Draw();
+            Triangle t1 = new Triangle(5, 7, 9);
+            t1.Draw();
+            Square s1 = new Square(5);
+            Rectangle r1 = new Rectangle(2, 7);
+            Console.WriteLine(s1.GetArea());
+            Console.WriteLine(r1.GetArea());
+            Console.WriteLine(c.ToString());
+            Console.WriteLine(t1.ToString());
+            Console.WriteLine(r1.ToString());
+            Console.WriteLine(s1.ToString());
+            Teacher teacher = new Teacher("Programming", "UPB", 2000, "Gigel Programator", 'm');
+            teacher.PrintTeacher();
+            Student student = new Student("an 1", true, true, "Ionel", 'm');
+            student.PrintStudent();
         }
 
         public static  void DrawFullShape(int width, int height)
@@ -477,6 +503,11 @@ namespace ConsoleApp2
                 }
                 Console.WriteLine("*");
             }
+        }
+
+        public static void DrawShapeOutLine(int l)
+        {
+            DrawShapeOutLine(l, l);
         }
 
         public static void DrawShapeOutLine(int width, int height)
@@ -523,6 +554,16 @@ namespace ConsoleApp2
                 Console.WriteLine("*");
             }
   
+        }
+
+        public static void DrawShapeCorners( int l)
+        {
+            DrawShapeCorners(l, l);
+        }
+
+        public static void DrawFullShape(int l)
+        {
+            DrawFullShape(l, l);
         }
 
 
