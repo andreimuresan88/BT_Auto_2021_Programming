@@ -18,7 +18,7 @@ namespace BT_Auto_2021_Programming
 
         public Triangle()
         {
-
+            this.Test();
         }
 
         public void FlipVertical()

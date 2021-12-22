@@ -8,6 +8,11 @@ namespace BT_Auto_2021_Programming
     {
         ConsoleColor color;
 
+        protected void Test()
+        {
+
+        }
+
         public virtual void Draw()
         {
             Console.WriteLine("we are drawing a shape");

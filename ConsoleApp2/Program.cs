@@ -375,8 +375,38 @@ namespace ConsoleApp2
             //Course02(args);
             //Course03(args);
             //Course04();
-            Course05();
+            //Course05();
+            //Library();
+            Couser06();
         }
+
+        private static void Couser06()
+        {
+            Car c1 = new Car(20, true, 90);
+            Car c2 = new Car(0, false, -90);
+            c1.Start();
+            c1.Accelerate();
+            c1.TurnLeft();
+            Console.WriteLine(Car.ConvertHpToKw(150));
+            Rectangle r1 = new Rectangle(3,4);
+            Console.WriteLine("Area is {0} perimeter is {1} diagonal {2}", r1.GetArea(), r1.GetPerimeter(), r1.GetDiagonal());
+            r1.SetLength(10);
+            r1.PrintRectangle();
+
+
+            c2.Start();
+            c2.GearUp();
+            c2.Accelerate(20);
+            c2.Steer(90);
+        }
+
+        static void Library()
+        {
+            Author a1 = new Author("authorName1", "authorEmail1");
+            Book b1 = new Book("BookName" , 2000, a1, 15);
+            Console.WriteLine("Book "+b1.GetName()+" ("+b1.GetPrice()+" RON), by "+a1.GetName()+", published in "+b1.GetYear());
+        }
+
 
         static void Course02(string[] args)
         {

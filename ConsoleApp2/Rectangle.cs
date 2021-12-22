@@ -25,14 +25,42 @@ namespace BT_Auto_2021_Programming
             this.width = width;
         }
 
+        public double GetLength()
+        {
+            return length;
+        }
+
+        public void SetLength(double length)
+        {
+            if (length > 0)
+            {
+                this.length = length;
+            }
+            else
+            {
+                Console.WriteLine("length should be positive");
+            }
+        }
+
         public virtual double GetArea()
         {
             return length * width;
         }
 
+        public virtual double GetPerimeter()
+        {
+            return 2 * (length + width);
+        }
+
+        public virtual double GetDiagonal()
+        {
+            return Math.Sqrt(Math.Pow(width, 2) + Math.Pow(length, 2));
+        }
+
         public void PrintRectangle()
         {
-            Console.WriteLine("The rectangle with length {0} asn width {1} has area {2}", length, width, GetArea());
+            //Console.WriteLine("The rectangle with length {0} asn width {1} has area {2}", length, width, GetArea());
+            Console.WriteLine("Area is {0} perimeter is {1} diagonal {2}", GetArea(), GetPerimeter(), GetDiagonal());
         }
 
         public override string ToString()
