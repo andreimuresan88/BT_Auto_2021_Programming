@@ -376,8 +376,47 @@ namespace ConsoleApp2
             //Course03(args);
             //Course04();
             //Course05();
-            //Library();
-            Couser06();
+            Library();
+            //Couser06();
+            VolumeShapes();
+        }
+
+        public static void VolumeShapes()
+        {
+            Cube c1 = new Cube(3);
+            c1.GetVolume();
+            Cube c2 = new Cube();
+            //c2.GetVolume(4);
+            Console.WriteLine("Volume for c1 is {0}", c1.GetVolume());
+            Console.WriteLine("Volume for c2 is {0}", c2.GetVolume(4));
+
+            Sphere s1 = new Sphere(3);
+            s1.GetVolume();
+            Sphere s2 = new Sphere();
+            //s2.GetVolume(4);
+            Console.WriteLine("Volume for s1 is {0}", s1.GetVolume());
+            Console.WriteLine("Volume for s2 is {0}", s2.GetVolume(4));
+
+            Pyramid p1 = new Pyramid(3, 4, 5);
+            p1.GetVolume();
+            Pyramid p2 = new Pyramid();
+            //p2.GetVolume(5, 6, 7);
+            Console.WriteLine("Volume for p1 is {0}", p1.GetVolume());
+            Console.WriteLine("Volume for p2 is {0}", p2.GetVolume(5,6,7));
+
+            Cylinder cylinder1 = new Cylinder(3, 4);
+            cylinder1.GetVolume();
+            Cylinder cylinder2 = new Cylinder();
+            //cylinder2.GetVolume(5, 6);
+            Console.WriteLine("Volume for cylinder1 is {0}", cylinder1.GetVolume());
+            Console.WriteLine("Volume for cylinder2 is {0}", cylinder2.GetVolume(5,6));
+
+            Torus t1 = new Torus(4, 6);
+            t1.GetVolume();
+            Torus t2 = new Torus();
+            //t2.GetVolume(5, 7);
+            Console.WriteLine("Volume for t1 is {0}", t1.GetVolume());
+            Console.WriteLine("Volume for t2 is {0}", t2.GetVolume(5,7));
         }
 
         private static void Couser06()
@@ -405,6 +444,7 @@ namespace ConsoleApp2
             Author a1 = new Author("authorName1", "authorEmail1");
             Book b1 = new Book("BookName" , 2000, a1, 15);
             Console.WriteLine("Book "+b1.GetName()+" ("+b1.GetPrice()+" RON), by "+a1.GetName()+", published in "+b1.GetYear());
+            Console.WriteLine("Book {0} ({1} RON), by {2}, published in {3}",b1.GetName(), b1.GetPrice(), a1.GetName(), b1.GetYear());
         }
 
 
