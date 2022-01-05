@@ -68,5 +68,11 @@ namespace BT_Auto_2021_Programming
             return "this is a rectangle  with " + width + "width and " + length + "length";
         }
 
+        public override void Draw()
+        {
+            //base.Draw(); apeleaza metoda din parinte
+            Console.WriteLine("drawing a rectangle");
+        }
+
     }
 }

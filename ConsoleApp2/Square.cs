@@ -38,6 +38,12 @@ namespace BT_Auto_2021_Programming
         {
             return "this is a square with side " + side;
         }
+
+        public override void Draw()
+        {
+            Console.WriteLine("Drawing a square");
+        }
     }
+
 
 }

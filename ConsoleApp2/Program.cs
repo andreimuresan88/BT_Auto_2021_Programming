@@ -1,5 +1,6 @@
 ﻿using BT_Auto_2021_Programming;
 using System;
+using System.Collections.Generic;
 
 namespace ConsoleApp2
 {
@@ -376,9 +377,63 @@ namespace ConsoleApp2
             //Course03(args);
             //Course04();
             //Course05();
-            Library();
+            //Library();
             //Couser06();
-            VolumeShapes();
+            //VolumeShapes();
+            Course07();
+        }
+
+        public static void Course07()
+        {
+            Square s1 = new Square();
+            Rectangle r1 = new Rectangle();
+            Shape sh1 = new Shape();
+
+            //polymorphism
+            //Shape s2 = new Square();
+            IShape s2 = new Square();
+            IShape r2 = new Rectangle();
+            IShape sh2 = new Shape();
+            //nu putem instantia clase abstracte
+
+            List<string> lista = new List<string>();
+
+            List<IShape> shapeList = new List<IShape>();
+            shapeList.Add(s2);
+            shapeList.Add(r2);
+            shapeList.Add(sh2);
+            shapeList.Add(s1);
+
+            //trebuie facut cast sa putem apel metodele specifice din square
+            ((Square)s2).printSquare();
+
+            s1.Draw();
+            s2.Draw();
+            s2.State();
+            ((AbstractShape)s2).DoSomething();
+            //exmple of using polymorphism
+            Shape sh3;
+            string type = "square";
+
+            switch (type)
+            {
+                case "square":
+                    {
+                        sh3 = new Square();
+                        break;
+                    }
+                case "rectangle":
+                    {
+                        sh3 = new Rectangle();
+                        break;
+                    }
+                default:
+                    {
+                        sh3 = new Shape();
+                        break;
+                    }
+            }
+            sh3.Draw();
         }
 
         public static void VolumeShapes()
@@ -447,7 +502,6 @@ namespace ConsoleApp2
             Console.WriteLine("Book {0} ({1} RON), by {2}, published in {3}",b1.GetName(), b1.GetPrice(), a1.GetName(), b1.GetYear());
         }
 
-
         static void Course02(string[] args)
         {
             Circle c1 = new Circle();
@@ -502,7 +556,7 @@ namespace ConsoleApp2
             GuessNumber(rnd.Next(1, 1000));
             IsOddNumber(10);
         }
-
+        
         static void Course04()
         {
             //DrawFullShape(5, 3);
@@ -636,7 +690,6 @@ namespace ConsoleApp2
             DrawFullShape(l, l);
         }
 
-
         static void ComputeConversion(string [] args)
         {
             if (args.Length != 3)
@@ -653,6 +706,7 @@ namespace ConsoleApp2
                 //Console.WriteLine("By converting {0} {1} into RON we obtain {2}", amount, currency, amount * conversionRate);
             }
         }
+        
         static void CurrencyCalculator(double amount, string currency, double conversionRate)
         {
             Console.WriteLine("By converting {0} {1} into RON we obtain {2}", amount, currency , amount * conversionRate);
@@ -701,6 +755,5 @@ namespace ConsoleApp2
         {
             return number % 2 != 0;
         }
-
     }
 }
