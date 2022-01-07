@@ -7,6 +7,10 @@ namespace BT_Auto_2021_Programming
     class Person
     {
         string name;
+        string lastName;
+        string address;
+        string city;
+        string country;
         char sex;
         string[] nationality;
         bool isHungry;

@@ -7,6 +7,13 @@ namespace ConsoleApp2
     class Program
     {
 
+        public enum Browsers
+        {
+            Chrome,
+            Edge,
+            Firefox
+        }
+
         public static void runEx(string[] args)
         {
             const int MAX_SIZE = 100;
@@ -381,6 +388,110 @@ namespace ConsoleApp2
             //Couser06();
             //VolumeShapes();
             Course07();
+            //Course08();
+        }
+
+        public static void Course08()
+        {
+
+
+            int[] intArray = new int[5] { 1, 2, 3, 4, 5 };
+            Shape s1 = new Shape();
+            Rectangle r1 = new Rectangle();
+            Shape[] shapes = new Shape[2] { s1, r1 };
+
+            foreach ( int x in intArray)
+            {
+                Console.WriteLine(x);
+            }
+            for(int i=0; i < intArray.Length; i++)
+            {
+                Console.WriteLine(intArray[i]);
+            }
+
+            List<string> myList = new List<string>();
+            myList.Add("orice");
+            myList.Add("nimic");
+            myList.Add("yo");
+            myList.Remove("yo");
+            myList.RemoveAt(0);
+
+            myList.ToArray();
+            Console.WriteLine(myList.IndexOf("orice"));
+            Console.WriteLine(myList[0]);
+
+            foreach(string s in myList)
+            {
+                Console.WriteLine(s);
+            }
+
+            for(int i=0; 0<myList.Count; i++)
+            {
+                Console.WriteLine(myList[i]);
+            }
+
+            String str = "ana are mere";
+            // a=3, n=1, r=2, e=3, m=1
+            Dictionary<char, int> characterFreq = new Dictionary<char, int>();
+            foreach(char c in str)
+            {
+                //characterFreq.ContainsKey(c);
+                if (characterFreq.ContainsKey(c))
+                {
+                    //characterFreq[c]++;
+                    characterFreq[c] = characterFreq[c] +1;
+                }
+                else
+                {
+                    characterFreq.Add(c, 1);
+                }
+            }
+
+            foreach(char key in characterFreq.Keys)
+            {
+                Console.WriteLine("{0}:{1}", key, characterFreq[key]);
+            }
+
+            foreach(KeyValuePair<char, int> kvp in characterFreq)
+            {
+                Console.WriteLine("{0}:{1}", kvp.Key, kvp.Value);
+            }
+
+            SortedList<int, string> listSorted = new SortedList<int, string>();
+            listSorted.Add(6, "abc");
+            listSorted.Add(10, "abcd");
+            listSorted.Add(1, "xyz");
+
+            foreach(int key in listSorted.Keys)
+            {
+                Console.WriteLine("{0}:{1}", key, listSorted[key]);
+            }
+
+            HashSet<int> hs = new HashSet<int>(intArray);
+            var hs2 = new HashSet<int>(intArray);
+            hs.Add(1);
+            foreach( int i in hs)
+            {
+                Console.WriteLine(i);
+            }
+
+            var myQueue = new Queue<int>();
+            myQueue.Enqueue(2);
+            myQueue.Enqueue(3);
+            myQueue.Enqueue(100);
+            myQueue.Enqueue(1);
+            int value = myQueue.Dequeue();
+
+            var myStack = new Stack<int>();
+            myStack.Push(2);
+            myStack.Push(3);
+            myStack.Push(100);
+            myStack.Push(1);
+            int stackVal = myStack.Pop();
+            Console.WriteLine("Stack elements: {0}", myStack.Count);
+
+            Console.WriteLine(Browsers.Firefox);
+
         }
 
         public static void Course07()
@@ -391,26 +502,26 @@ namespace ConsoleApp2
 
             //polymorphism
             //Shape s2 = new Square();
-            IShape s2 = new Square();
-            IShape r2 = new Rectangle();
-            IShape sh2 = new Shape();
+            //IShape s2 = new Square();
+            //IShape r2 = new Rectangle();
+            //IShape sh2 = new Shape();
             //nu putem instantia clase abstracte
 
             List<string> lista = new List<string>();
 
             List<IShape> shapeList = new List<IShape>();
-            shapeList.Add(s2);
-            shapeList.Add(r2);
-            shapeList.Add(sh2);
-            shapeList.Add(s1);
+            //shapeList.Add(s2);
+            //shapeList.Add(r2);
+            //shapeList.Add(sh2);
+            //shapeList.Add(s1);
 
             //trebuie facut cast sa putem apel metodele specifice din square
-            ((Square)s2).printSquare();
+            //((Square)s2).printSquare();
 
             s1.Draw();
-            s2.Draw();
-            s2.State();
-            ((AbstractShape)s2).DoSomething();
+            //s2.Draw();
+            //s2.State();
+            //((AbstractShape)s2).DoSomething();
             //exmple of using polymorphism
             Shape sh3;
             string type = "square";
