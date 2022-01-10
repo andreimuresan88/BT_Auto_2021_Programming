@@ -13,7 +13,7 @@ namespace BT_Auto_2021_Programming
 
         }
 
-        public override void Draw()
+        public void Draw()
         {
             Console.WriteLine("we are drawing a shape");
         }
@@ -38,7 +38,7 @@ namespace BT_Auto_2021_Programming
             return "this is a generic shape";
         }
 
-        public override void Color()
+        public void Color()
         {
             throw new NotImplementedException();
         }

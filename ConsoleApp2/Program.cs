@@ -387,9 +387,75 @@ namespace ConsoleApp2
             //Library();
             //Couser06();
             //VolumeShapes();
-            Course07();
+            //Course07();
             //Course08();
+            Course09(args);
         }
+
+        private static void Course09(string[] args)
+        {
+            //int x = 7 / 0; compile error
+            //Shape s; error
+            //s.Color(); error
+
+            //runtime exceptions
+            try
+            {
+                Console.WriteLine(args[1]);
+                int z = int.Parse(args[0]);
+                int y = 0;
+                int x = 7 / y;
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                Console.WriteLine("index out of bound");
+            }
+            catch(FormatException ex)
+            {
+                Console.WriteLine("failed to convert to int");
+            }
+            catch(DivideByZeroException ex)
+            {
+                Console.WriteLine("cannot divide by zero");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Ooops is an exception");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+            }
+            finally
+            {
+                Console.WriteLine("the finally blocks always exceutes!!!");
+            }
+
+            Shape sh = new Shape();
+
+            //try
+           // {
+            //    sh.Draw();
+            //}
+            //finally
+            //{
+           //     sh.Dispose
+           // }
+
+
+            //using (Shape s2 = new Shape())
+            //{
+            //    s2.Draw();
+            //}
+
+
+            //Console.WriteLine(args[0]);
+
+            //throw new NotImplementedException();
+        }
+
+        //private static void RecursiveMethod()
+        //{
+        //    RecursiveMethod();
+        //}
 
         public static void Course08()
         {
