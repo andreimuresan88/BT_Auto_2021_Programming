@@ -5,7 +5,11 @@ VisualStudioVersion = 16.0.31911.196
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BT_Auto_2021_Programming", "BT_Auto_2021_Programming.csproj", "{606F51B7-2C92-4666-99DA-0338111F9CCF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnit_Auto_2022", "..\NUnit_Auto_2022\NUnit_Auto_2022.csproj", "{3BBD41BA-1A1A-434C-93A2-AF9B83364A8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NUnit_Auto_2022", "..\NUnit_Auto_2022\NUnit_Auto_2022.csproj", "{3BBD41BA-1A1A-434C-93A2-AF9B83364A8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSTest_Auto2022", "..\MSTest_Auto2022\MSTest_Auto2022.csproj", "{F60D25A8-19AE-4A01-85CF-5FD30484014F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnit_Auto_2022", "..\XUnit_Auto_2022\XUnit_Auto_2022.csproj", "{D44343D3-F270-4F24-B384-E111917F61AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{3BBD41BA-1A1A-434C-93A2-AF9B83364A8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BBD41BA-1A1A-434C-93A2-AF9B83364A8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3BBD41BA-1A1A-434C-93A2-AF9B83364A8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F60D25A8-19AE-4A01-85CF-5FD30484014F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F60D25A8-19AE-4A01-85CF-5FD30484014F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F60D25A8-19AE-4A01-85CF-5FD30484014F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F60D25A8-19AE-4A01-85CF-5FD30484014F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D44343D3-F270-4F24-B384-E111917F61AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D44343D3-F270-4F24-B384-E111917F61AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D44343D3-F270-4F24-B384-E111917F61AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D44343D3-F270-4F24-B384-E111917F61AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

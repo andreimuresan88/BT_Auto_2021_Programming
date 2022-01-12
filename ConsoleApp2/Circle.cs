@@ -33,7 +33,7 @@ namespace BT_Auto_2021_Programming
             Console.WriteLine("Circle with radius {0} has the area {1} ", radius, getArea());
         }
 
-        public override void Draw()
+        public void Draw()
         {
             Console.WriteLine("we are drawing cicle with radius {0}", radius);
         }

@@ -389,7 +389,46 @@ namespace ConsoleApp2
             //VolumeShapes();
             //Course07();
             //Course08();
-            Course09(args);
+            //Course09(args);
+            //RunBuilding();
+        }
+
+        private static void RunBuilding()
+        {
+            string[] a1 = { "a", "b", "c"};
+            string[] a2 = { "a", "b", "c"};
+            string[] a3 = { "a", "b", "c"};
+            string[] a4 = { "a", "b", "c"};
+            string[] a5 = { "a", "b", "c"};
+            
+            List<Room> rooms = new List<Room>();
+
+            rooms.AddRange(new List<Room> {
+                    new Room(10, a1, 20, RoomType.WorkingSpace),
+                    new Room(10, a2, 20, RoomType.DepositSpace),
+                    new Room(10, a3, 20, RoomType.Kitchen),
+                    new Room(10, a4, 20, RoomType.WorkingSpace),
+                    new Room(10, a5, 200, RoomType.MeetingRoom)
+            });
+
+            List<Floor> floors = new List<Floor>();
+            floors.AddRange(new List<Floor> {
+                        new Floor(rooms),
+                        new Floor(rooms),
+                        new Floor(rooms),
+                        new Floor(rooms),
+                        new Floor(rooms)
+            });
+
+            Building building = new Building(floors);
+            try
+            {
+                Building.PrintBuilding(building);
+            }
+            catch (BuildingException e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
         private static void Course09(string[] args)
