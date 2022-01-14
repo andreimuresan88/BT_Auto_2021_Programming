@@ -32,11 +32,17 @@ namespace NUnit_Auto_2022
         [TestCase(16, '/', 4, 4)]
         [TestCase(-100, '/', 2, -50)]
         [TestCase(100, '/', 3, 33.3333)]
-        [TestCase(100, '/', 0, 0)]
+        
         public void TestCompute(double a, char op, double b, double result)
         {
             Calculator c = new Calculator(a, b, op);
             Assert.AreEqual(result, c.Compute(), 0.0001, "The sum of numbers is not as expected!!");
+        }
+        [TestCase(100, '/', 0)]
+        public void TestComputeException(double a, char op, double b)
+        {
+            Calculator c = new Calculator(a, b, op);
+            Assert.Throws<AssertionException>(() => c.Compute());
         }
 
         [TearDown]

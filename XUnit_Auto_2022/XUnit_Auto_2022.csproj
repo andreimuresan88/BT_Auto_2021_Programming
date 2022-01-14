@@ -19,4 +19,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\NUnit_Auto_2022\NUnit_Auto_2022.csproj" />
+  </ItemGroup>
+
 </Project>
