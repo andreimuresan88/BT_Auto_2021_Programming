@@ -390,7 +390,7 @@ namespace ConsoleApp2
             //Course07();
             //Course08();
             //Course09(args);
-            //RunBuilding();
+            RunBuilding();
         }
 
         private static void RunBuilding()
@@ -404,11 +404,11 @@ namespace ConsoleApp2
             List<Room> rooms = new List<Room>();
 
             rooms.AddRange(new List<Room> {
-                    new Room(10, a1, 20, RoomType.WorkingSpace),
-                    new Room(10, a2, 20, RoomType.DepositSpace),
-                    new Room(10, a3, 20, RoomType.Kitchen),
-                    new Room(10, a4, 20, RoomType.WorkingSpace),
-                    new Room(10, a5, 200, RoomType.MeetingRoom)
+                new MeetingRoom(30, a1, 15),
+                new MeetingRoom(60, a2, 30),
+                new Kitchen(15, a5, 5),
+                new WorkingSpace(100, a3, 40),
+                new DepositSpace(10, a4, 2)
             });
 
             List<Floor> floors = new List<Floor>();
@@ -427,7 +427,7 @@ namespace ConsoleApp2
             }
             catch (BuildingException e)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine(e.ToString());
             }
         }
 

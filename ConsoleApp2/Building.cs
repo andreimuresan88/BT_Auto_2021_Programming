@@ -8,6 +8,7 @@ namespace BT_Auto_2021_Programming
     {
         List<Floor> floors = new List<Floor>();
         const int MAX_CAPACITY = 300;
+        //const int MAX_CAPACITY = 3000;
 
         public Building(List<Floor> floors)
         {
