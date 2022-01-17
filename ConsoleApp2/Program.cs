@@ -390,7 +390,7 @@ namespace ConsoleApp2
             //Course07();
             //Course08();
             //Course09(args);
-            RunBuilding();
+            //RunBuilding();
         }
 
         private static void RunBuilding()
