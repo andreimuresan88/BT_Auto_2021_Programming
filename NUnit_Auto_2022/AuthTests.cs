@@ -116,6 +116,52 @@ namespace NUnit_Auto_2022
             var element = Utils.WaitForFluentElement(driver, 20, By.Id("btn2"));
             element.Click();
         }
+        [Test]
+        public void Test06()
+        {
+            driver.Navigate().GoToUrl("magazinul colectionerulu");
+            var cookies = driver.Manage().Cookies;
+            Console.WriteLine("the site contains {0}, cookies ", cookies.AllCookies.Count);
+            Utils.PrintCookies(cookies);
+
+            Cookie myCookie = new Cookie("myCookie", "vineoaiapapalupu");
+            cookies.AddCookie(myCookie);
+            Utils.PrintCookies(cookies);
+
+            cookies.DeleteAllCookies();
+
+            var ss = ((ITakesScreenshot)driver).GetScreenshot();
+            ss.SaveAsFile("punem calea unde vrem sa ne salveze printscreenurile (calea full)", ScreenshotImageFormat.Png);
+
+            Utils.TakeScreenShotWithDate(driver, "C\\:Temp", "screenshot1.png", ScreenshotImageFormat.Png);
+
+        }
+
+        [Test]
+        public void Test07()
+        {
+            driver.Navigate().GoToUrl("punem pagina de alete");
+            var alertButton = driver.FindElement(By.Id("alert-trigger"));
+            var confirmButton = driver.FindElement(By.Id("confirm-trigger"));
+            var promptButton = driver.FindElement(By.Id("prompt-trigger"));
+
+            alertButton.Click();
+            IAlert alert = driver.SwitchTo().Alert();
+            Console.WriteLine(alert.Text);
+            alert.Accept();
+
+            confirmButton.Click();
+            alert = driver.SwitchTo().Alert();
+            Console.WriteLine(alert.Text);
+            alert.Dismiss();
+
+
+            promptButton.Click();
+            alert = driver.SwitchTo().Alert();
+            Console.WriteLine(alert.Text);
+            alert.SendKeys("alex");
+            alert.Accept();
+        }
 
 
         [TearDown]

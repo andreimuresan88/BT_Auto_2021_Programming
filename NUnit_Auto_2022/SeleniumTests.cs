@@ -24,9 +24,48 @@ namespace NUnit_Auto_2022
         [SetUp]
         public void Setup()
         {
-            driver = new ChromeDriver();
+            var option = new ChromeOptions();
+            //option.AddArgument("--start-maximized");
+            //option.AddArgument("headless");
+            option.AddArgument("ignore-certificate-errors");
+
+            var proxy = new Proxy();
+            proxy.HttpProxy="127.0.0.1:800";
+            proxy.IsAutoDetect = false;
+            //option.Proxy = proxy;
+
+            //option.AddExtension("");
+            //facem download la extensie apare in video cum si se pune calea in add extension.
+
+            //driver = new ChromeDriver(option);
+            driver.Manage().Window.Maximize();
             //driver = new FirefoxDriver();
             //driver = new EdgeDriver();
+
+            var firefoxOptions = new FirefoxOptions();
+            string[] optionList =
+            {
+                "--headless",
+                "--ignore-certificate-errors",
+                "--no-sandbox",
+                "disable-gpu"
+            };
+
+            firefoxOptions.AddArguments(optionList);
+
+            FirefoxProfile fProfile = new FirefoxProfile();
+            fProfile.AddExtension("trebuie sa punem calea extensiei ce a fost downloadata");
+            firefoxOptions.Profile = fProfile;
+
+            //edge options
+            var edgeOptions = new EdgeOptions();
+            //edgeOptions.AddExtension("caleaaaaaa cal chorme");
+            edgeOptions.AddArguments("args", "['--start-maximized', '--headless']");
+            edgeOptions.AddArguments("headless");
+
+            //driver = new FirefoxDriver(firefoxOptions);
+            driver = new EdgeDriver(edgeOptions);
+            driver.Manage().Window.Maximize();
         }
 
         [Test]
