@@ -60,7 +60,7 @@ namespace NUnit_Auto_2022
             //edge options
             var edgeOptions = new EdgeOptions();
             //edgeOptions.AddExtension("caleaaaaaa cal chorme");
-            edgeOptions.AddArguments("args", "['--start-maximized', '--headless']");
+            edgeOptions.AddArguments("args", "['--start-maximized']");
             edgeOptions.AddArguments("headless");
 
             //driver = new FirefoxDriver(firefoxOptions);

@@ -52,5 +52,12 @@ namespace NUnit_Auto_2022
             string finalFilePath = String.Format("{0}\\{1}_{2}.{3}", path, filename, currentDate, format);
             ((ITakesScreenshot)driver).GetScreenshot().SaveAsFile(finalFilePath, format);
         }
+
+        public static void ExecuteJsScript(IWebDriver driver, string script)
+        {
+            var JsExecuter = (IJavaScriptExecutor)driver;
+            //var result = 
+            //te terminat
+        }
     }
 }
