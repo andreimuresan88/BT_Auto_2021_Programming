@@ -20,8 +20,9 @@ namespace NUnit_Auto_2022
         public void Setup()
         {
             driver = new ChromeDriver();
+            driver.Manage().Window.Maximize();
         }
-        [TestCase("abcd", "12345678", "12345678", "aaa", "aaa", "aaa@aa.ro", "", "", "", "","","")]
+        [TestCase("abcd", "12345678", "12345678", "aa!!@!a", "aaa", "aaa@aa.ro", "", "", "", "","","")]
         [TestCase("abc", "12345678", "12345678", "aaa", "aaa", "aaa@aa.ro", "Minimum of 4 characters is required!", "", "", "","","")]
         [TestCase("123456789012345678901234567890123456789", "12345678", "12345678", "aaa", "aaa", "aaa@aa.ro", "Maximum of 35 characters allowed!", "", "", "","","")]
         [TestCase("abcd", "", "12345678", "aaa", "aaa", "aaa@aa.ro", "", "Password is required!", "Passwords do not match!", "","","")]
@@ -34,7 +35,6 @@ namespace NUnit_Auto_2022
         [TestCase("abcd", "12345678", "12345678", "aaa", "aaa", "", "", "", "", "","", "Email is required!")]
         public void Test01(string user, string pass, string confPass, string fName, string lName, string emailAddress, string userError, string passError, string confPassError, string firstNameError, string lastNameError, string emailError)
         {
-            Console.WriteLine(url);
             driver.Navigate().GoToUrl(url);
 
             var registrationLink = driver.FindElement(By.CssSelector("#root > div > div.sidebar > a:nth-child(3)"));
@@ -61,13 +61,18 @@ namespace NUnit_Auto_2022
             var email = driver.FindElement(By.Id("input-email"));
             var emailErr = driver.FindElement(By.CssSelector("#registration-form > div:nth-child(9) > div > div > div.text-left.invalid-feedback"));
 
-            /*var dateOfBirth = driver.FindElement(By.Id("input-dob"));
-            var selectDate = driver.FindElement(By.CssSelector("#registration-form > div:nth-child(10) > div > div > div.react-datepicker__tab-loop > div.react-datepicker-popper > div > div > div.react-datepicker__month-container > div.react-datepicker__month > div:nth-child(4) > div.react-datepicker__day.react-datepicker__day--017"));
-            selectDate.Click();*/
+            var title = driver.FindElement(By.CssSelector("#registration-form > div:nth-child(6) > div > div:nth-child(2) > input"));
+            title.Click();
 
-/*            var nationality = driver.FindElement(By.Id("input-nationality"));
-            var nationalitySelect = driver.FindElement(By.CssSelector(""));
-            nationalitySelect.Click();*/
+            var dateOfBirth = driver.FindElement(By.Id("input-dob"));
+            dateOfBirth.Click();
+            var selectDate = driver.FindElement(By.CssSelector("#registration-form > div:nth-child(10) > div > div > div.react-datepicker__tab-loop > div.react-datepicker-popper > div > div > div.react-datepicker__month-container > div.react-datepicker__month > div:nth-child(4) > div.react-datepicker__day.react-datepicker__day--017"));
+            selectDate.Click();
+
+            var nationality = driver.FindElement(By.Id("input-nationality"));
+            nationality.Click();
+            var nationalitySelect = driver.FindElement(By.CssSelector("#input-nationality > option:nth-child(83)"));
+            nationalitySelect.Click();
 
             var terms = driver.FindElement(By.Id("terms"));
             terms.Click();
@@ -91,7 +96,7 @@ namespace NUnit_Auto_2022
 
             email.Clear();
             email.SendKeys(emailAddress);
-            
+
             submit.Submit();
 
             Assert.AreEqual(userError, usernameEmptyErr.Text);
@@ -100,6 +105,50 @@ namespace NUnit_Auto_2022
             Assert.AreEqual(firstNameError, firstNameErr.Text);
             Assert.AreEqual(lastNameError, lastNameErr.Text);
             Assert.AreEqual(emailError, emailErr.Text);
+            //Assert.IsTrue(lastName.Text.Contains("bbbbb"));
+            //Assert.IsTrue(title.Selected);
+            //Assert.That(fName, Does.Match("[A-Za-z-]"));
+            Assert.IsTrue(System.Text.RegularExpressions.Regex.IsMatch("nimic", "[A-Za-z-]"));
+        }
+
+/*      - identify the buttons in the page - done
+
+        - generate a cookie using the button - done
+
+        - get the cookies from the browser using the code - done
+
+        - get the text from the page with the cookie value - done
+
+        - verify that the cookie text from the page is the same as the cookie value from the browser - done
+
+        - delete the cookie using the button - done
+
+        - check that the cookie is no longer present*/
+
+        [Test]
+        public void Test02()
+        {
+            driver.Navigate().GoToUrl("http://86.121.249.150:4999/#/cookie");
+
+            var setCookieBtn = driver.FindElement(By.Id("set-cookie"));
+            var deleteCookieBtn = driver.FindElement(By.Id("delete-cookie"));
+
+            setCookieBtn.Click();
+
+            var getCookies = driver.Manage().Cookies;
+            var cookieValue = driver.FindElement(By.Id("cookie-value"));
+            Console.WriteLine("cookieValue" + cookieValue);
+            var ck = getCookies.GetCookieNamed("gibberish").Value;
+            Console.WriteLine("ck : " + ck);
+
+            Assert.AreEqual(cookieValue.Text, ck);
+
+            //deleteCookieBtn.Click();
+
+            var deletedCookie = getCookies.GetCookieNamed("gibberish");
+            
+            Assert.IsNull(deletedCookie);
+
 
         }
 
