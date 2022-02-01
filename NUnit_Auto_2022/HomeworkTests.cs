@@ -105,10 +105,8 @@ namespace NUnit_Auto_2022
             Assert.AreEqual(firstNameError, firstNameErr.Text);
             Assert.AreEqual(lastNameError, lastNameErr.Text);
             Assert.AreEqual(emailError, emailErr.Text);
-            //Assert.IsTrue(lastName.Text.Contains("bbbbb"));
-            //Assert.IsTrue(title.Selected);
-            //Assert.That(fName, Does.Match("[A-Za-z-]"));
-            Assert.IsTrue(System.Text.RegularExpressions.Regex.IsMatch("nimic", "[A-Za-z-]"));
+
+            //Assert.IsTrue(System.Text.RegularExpressions.Regex.IsMatch("nimic", "[A-Za-z-]"));
         }
 
 /*      - identify the buttons in the page - done
