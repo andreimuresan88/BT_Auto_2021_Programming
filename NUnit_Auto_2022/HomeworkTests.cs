@@ -66,7 +66,8 @@ namespace NUnit_Auto_2022
 
             var dateOfBirth = driver.FindElement(By.Id("input-dob"));
             dateOfBirth.Click();
-            var selectDate = driver.FindElement(By.CssSelector("#registration-form > div:nth-child(10) > div > div > div.react-datepicker__tab-loop > div.react-datepicker-popper > div > div > div.react-datepicker__month-container > div.react-datepicker__month > div:nth-child(4) > div.react-datepicker__day.react-datepicker__day--017"));
+            //var selectDate = driver.FindElement(By.CssSelector("#registration-form > div:nth-child(10) > div > div > div.react-datepicker__tab-loop > div.react-datepicker-popper > div > div > div.react-datepicker__month-container > div.react-datepicker__month > div:nth-child(4) > div.react-datepicker__day.react-datepicker__day--017"));
+            var selectDate = driver.FindElement(By.CssSelector("#registration-form > div:nth-child(10) > div > div > div.react-datepicker__tab-loop > div.react-datepicker-popper > div > div > div.react-datepicker__month-container > div.react-datepicker__month > div:nth-child(5) > div.react-datepicker__day.react-datepicker__day--028"));
             selectDate.Click();
 
             var nationality = driver.FindElement(By.Id("input-nationality"));
