@@ -19,4 +19,8 @@
     <PackageReference Include="Selenium.WebDriver.MSEdgeDriver" Version="97.0.1072.55" />
   </ItemGroup>
 
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy /y /f $(ProjectDir)config.properties $(ProjectDir)$(OutDir)config.properties&#xD;&#xA;" />
+  </Target>
+
 </Project>

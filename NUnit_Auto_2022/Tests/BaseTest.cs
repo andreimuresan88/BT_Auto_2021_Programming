@@ -10,12 +10,12 @@ namespace NUnit_Auto_2022.Tests
 {
     class BaseTest
     {
-        IWebDriver driver;
+        public IWebDriver driver;
 
         [SetUp]
         public void Setup()
         {
-            driver = Browser.GetDriver(WebBrowsers.Chrome);
+            driver = Browser.GetDriver();
         }
 
         [TearDown]

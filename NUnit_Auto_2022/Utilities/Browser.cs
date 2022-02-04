@@ -33,6 +33,34 @@ namespace NUnit_Auto_2022.Utilities
 
             }
         }
+
+        public static IWebDriver GetDriver()
+        {
+            WebBrowsers cfgBrowser;
+            switch (FrameworkConstants.configBrowser.ToUpper())
+            {
+                case "FIREFOX":
+                    {
+                        cfgBrowser = WebBrowsers.Firefox;
+                        break;
+                    }
+                case "CHROME":
+                    {
+                        cfgBrowser = WebBrowsers.Chrome;
+                        break;
+                    }
+                case "EDGE":
+                    {
+                        cfgBrowser = WebBrowsers.Edge;
+                        break;
+                    }
+                default:
+                    {
+                        throw new BrowerTypeException(String.Format(""));
+                    }
+            }
+            return GetDriver(cfgBrowser);
+        }
      
 
         }

@@ -8,29 +8,27 @@ using System.Text;
 
 namespace NUnit_Auto_2022.Tests
 {
-    class EcomTestSite
+    class EcomTestSite :BaseTest
     {
-        //https://www.abdcomputer.ro/
-        IWebDriver driver;
-
-        [SetUp]
-        public void Setup()
-        {
-            driver = new ChromeDriver();
-        }
-
-/*        [Test]
+        [Test]
         public void LoginTest()
         {
+            driver.Navigate().GoToUrl("https://www.abdcomputer.ro/");
             LandingPage lp = new LandingPage(driver);
             Assert.AreEqual("Produse IT Renew, Refurbish, Noi & SH", lp.CheckPage());
-            lp.LogInNavigate();
-        }*/
+            lp.LoginNavigate();
+        }
 
-        [TearDown]
-        public void TearDown()
+        [Test]
+        public void RegisterUnchecked()
         {
-            driver.Quit();
+            driver.Navigate().GoToUrl("https://www.abdcomputer.ro/");
+            LandingPage lp = new LandingPage(driver);
+            lp.LoginNavigate();
+            RegisterPage rp = new RegisterPage(driver);
+            Assert.AreEqual("Sunt client nou", rp.CheckPage());
+            rp.AcceptCookies();
+            rp.Register("aaaa", "bbbb", "077777770", "aaaa@aaaa.com", "Abc123$");
         }
     }
 }
