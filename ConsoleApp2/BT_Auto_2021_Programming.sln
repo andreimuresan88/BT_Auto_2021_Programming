@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BT_Auto_2021_Programming", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NUnit_Auto_2022", "..\NUnit_Auto_2022\NUnit_Auto_2022.csproj", "{3BBD41BA-1A1A-434C-93A2-AF9B83364A8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSTest_Auto2022", "..\MSTest_Auto2022\MSTest_Auto2022.csproj", "{F60D25A8-19AE-4A01-85CF-5FD30484014F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MSTest_Auto2022", "..\MSTest_Auto2022\MSTest_Auto2022.csproj", "{F60D25A8-19AE-4A01-85CF-5FD30484014F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnit_Auto_2022", "..\XUnit_Auto_2022\XUnit_Auto_2022.csproj", "{D44343D3-F270-4F24-B384-E111917F61AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XUnit_Auto_2022", "..\XUnit_Auto_2022\XUnit_Auto_2022.csproj", "{D44343D3-F270-4F24-B384-E111917F61AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnit_Homework_2022", "..\NUnit_Homework_2022\NUnit_Homework_2022.csproj", "{1C415547-1314-4F66-A3AA-CB2DF416CC61}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{D44343D3-F270-4F24-B384-E111917F61AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D44343D3-F270-4F24-B384-E111917F61AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D44343D3-F270-4F24-B384-E111917F61AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C415547-1314-4F66-A3AA-CB2DF416CC61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C415547-1314-4F66-A3AA-CB2DF416CC61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C415547-1314-4F66-A3AA-CB2DF416CC61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C415547-1314-4F66-A3AA-CB2DF416CC61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

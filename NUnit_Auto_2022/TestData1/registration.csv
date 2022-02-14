@@ -1,0 +1,12 @@
+﻿username,password,confPassword,firstName,lastName,email,usernameError,passwordError,confPasswordError,fnameError,lnameError,emailError
+abcd,12345678,12345678,aaaaaaa,aaa,aaa@aa.ro,,,,,,
+abc,12345678,12345678,aaa,aaa,aaa@aa.ro,Minimum of 4 characters is required!,,,,,
+123456789012345678901234567890123456789,12345678,12345678,aaa,aaa,aaa@aa.ro,Maximum of 35 characters allowed!,,,,,
+abcd,,12345678,aaa,aaa,aaa@aa.ro,,Password is required!,Passwords do not match!,,,
+abcd,12345678,1234567,aaa,aaa,aaa@aa.ro,,,Passwords do not match!,,,
+abcd,1234567,12345678,aaa,aaa,aaa@aa.ro,,Minimum of 8 characters is required!,Passwords do not match!,,,
+abcd,12345678,12345678,a,aaa,aaa@aa.ro,,,,Minimum of 2 characters is required!,,
+abcd,12345678,12345678,aaa,a,aaa@aa.ro,,,,,Minimum of 2 characters is required!,
+abcd,12345678,12345678,aaa,aaa,aaa@aa,,,,,,Invalid email address!
+abcd,12345678,12345678,aaa,aaa,aaaaa.ro,,,,,,Invalid email address!
+abcd,12345678,12345678,aaa,aaa,,,,,,,Email is required!

@@ -171,7 +171,7 @@ namespace NUnit_Auto_2022
             cookies.DeleteAllCookies();
             Console.WriteLine("The site contains {0} cookies", cookies.AllCookies.Count);
 
-            Utils.TakeScreenShotWithDate(driver, "C:\\Temp", "screenshot", ScreenshotImageFormat.Png);
+            Utils.TakeScreenshotWithDate(driver, "C:\\Temp", "screenshot", ScreenshotImageFormat.Png);
         }
 
         [Test]

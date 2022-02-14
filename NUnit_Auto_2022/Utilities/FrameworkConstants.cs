@@ -6,21 +6,23 @@ namespace NUnit_Auto_2022.Utilities
 {
     class FrameworkConstants
     {
-        static Dictionary<string, string> configData = Utils.ReadConfig("config.properties");
+        //static Dictionary<string, string> configData = Utils.ReadConfig("config.properties");
 
         const string extensionPath = "Other\\ExtensionFile";
 
+        static Dictionary<string, string> configData = Utils.ReadConfig("config.properties");
         static string protocol = configData["protocol"];
         static string hostname = configData["hostname"];
         static string port = configData["port"];
         static string path = configData["apppath"];
         public static string browserProxy = configData["proxyserver"];
-        public static bool startHeadLess = GetHeadLessConfig();
+        public static bool startHeadless = GetHeadlessConfig();
         public static bool useProxy = Boolean.Parse(configData["useproxy"]);
-        public static bool startMaximized = Boolean.Parse(configData["statmaximized"]);
+        public static bool startMaximized = Boolean.Parse(configData["startmaximized"]);
         public static bool ignoreCertErr = Boolean.Parse(configData["ignorecerterr"]);
         public static bool startWithExtension = Boolean.Parse(configData["extension"]);
         public static string configBrowser = configData["browser"];
+        
         public static string GetUrl()
         {
             return String.Format("{0}://{1}:{2}{3}", protocol, hostname, port, path);
@@ -41,22 +43,30 @@ namespace NUnit_Auto_2022.Utilities
             }
         }
 
-        private static bool GetHeadLessConfig()
+        // returns how the browser will start in regards to headless
+        // if there is an environment variable of type env = local, then will start normal
+        // if there is an environment variable of type env but not local, will start headless
+        // if there is no environment varible of type env get the config from the config.properties
+        private static bool GetHeadlessConfig()
         {
-            foreach(KeyValuePair<string, string>kvp in Environment.GetEnvironmentVariables())
+            foreach (string key in Environment.GetEnvironmentVariables().Keys)
             {
-                if (kvp.Key.Equals("env"))
+                if (key.Equals("env"))
                 {
-                    if (!kvp.Value.Equals("local"))
+                    if (!Environment.GetEnvironmentVariables()[key].Equals("local"))
                     {
+                        Console.WriteLine("Found env variable other for local");
                         return true;
                     }
                     else
                     {
+                        Console.WriteLine("Found env variable for local");
                         return false;
                     }
                 }
+                //Console.WriteLine("KEY {0}, VALUE {1}", key, Environment.GetEnvironmentVariables()[key]);
             }
+            Console.WriteLine("No env variable, reading from file");
             return Boolean.Parse(configData["headless"]);
         }
     }
